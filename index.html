@@ -55,18 +55,30 @@ position:absolute;
 <p>I made something for you.</p>
 <h1>Will you be my Valentine?</h1>
 
-<button id="yes" onclick="yes()">Yes 💖</button>
+<button id="yes" onclick="yesClicked()">Yes 💖</button>  
 <button id="no" ontouchstart="move()">No</button>
 </div>
 
 <script>
-function move(){
-let btn=document.getElementById("no");
-let x=Math.random()*(window.innerWidth-100);
-let y=Math.random()*(window.innerHeight-50);
-btn.style.left=x+"px";
-btn.style.top=y+"px";
+function moveButton() {
+  const btn = document.getElementById("no");
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 60);
+
+  btn.style.position = "absolute";
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
 }
 
-function yes(){
-document.body.innerHTM
+// iPhone touch support
+document.getElementById("no").addEventListener("touchstart", moveButton);
+document.getElementById("no").addEventListener("mouseover", moveButton);
+
+function yesClicked() {
+  document.body.innerHTML = `
+  <div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;font-family:-apple-system;">
+  <h1 style="font-size:38px;">I knew you would say yes ❤️</h1>
+  <p style="font-size:18px;">You just made my day.</p>
+  </div>`;
+}
+</script>
