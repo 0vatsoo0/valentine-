@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:-apple-system;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+overflow:hidden;
+color:white;
+}
+
+.container{
+text-align:center;
+background:rgba(255,255,255,0.15);
+padding:35px;
+border-radius:22px;
+backdrop-filter:blur(15px);
+}
+
+h1{font-size:34px;}
+
+button{
+padding:14px 28px;
+font-size:18px;
+border:none;
+border-radius:12px;
+margin:12px;
+}
+
+#yes{
+background:#00c853;
+color:white;
+}
+
+#no{
+background:#ff1744;
+color:white;
+position:absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Hey ❤️</h1>
+<p>I made something for you.</p>
+<h1>Will you be my Valentine?</h1>
+
+<button id="yes" onclick="yes()">Yes 💖</button>
+<button id="no" ontouchstart="move()">No</button>
+</div>
+
+<script>
+function move(){
+let btn=document.getElementById("no");
+let x=Math.random()*(window.innerWidth-100);
+let y=Math.random()*(window.innerHeight-50);
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+}
+
+function yes(){
+document.body.innerHTML=
+"<h1 style='text-align:center;margin-top:40vh;'>I knew you'd say yes 😌❤️</h1>";
+}
+</script>
+
+</body>
+</html>
